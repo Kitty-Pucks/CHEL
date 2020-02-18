@@ -57,7 +57,7 @@ def team_prac():
     time.sleep (0.5)
     pin=2
     press(pin)
-    time.sleep (0.5)
+    time.sleep (3)
     
 #TODO3: Move to 2-on-1 setting
     
