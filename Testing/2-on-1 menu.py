@@ -9,8 +9,9 @@ This code will get to the 2-on-1 scenario menu
 Steps to complete before running code:
     1) Ensure game is in and xbox is plugged in
     2) Resolve internet connection pup up if present (hit "cancel")
-    3) Ensure "Practice Mode" is the first pinned gamemode
-    4) Get to loading screen of NHL 18 then start
+    3) Ensure no extra pop-ups will occur (sign in, ea sports account, etc)
+    4) Ensure "Practice Mode" is the first pinned gamemode
+    5) Get to loading screen of NHL 18 then start
     
 Scenario wanted in step 4:
     1) League = NHL
@@ -35,10 +36,10 @@ import time
 def prac_mode():
     pin=2
     press(pin)
-    time.sleep(5)
+    time.sleep(20)
     pin=2
     press(pin)
-    time.sleep(2)
+    time.sleep(5)
     
 #TODO2: Navigate to "Team Practice"
     #Use D-pad and move to the right three times
@@ -47,26 +48,61 @@ def prac_mode():
 def team_prac():
     pin=11
     press(pin)
-    time.sleep (0.1)
+    time.sleep (0.5)
     pin=11
     press(pin)
-    time.sleep (0.1)
+    time.sleep (0.5)
     pin=11
     press(pin)
-    time.sleep (0.1)
+    time.sleep (0.5)
     pin=2
     press(pin)
-    time.sleep (0.1)
+    time.sleep (0.5)
     
 #TODO3: Move to 2-on-1 setting
     
-def Two_on_One(x):
+def two_on_one():
     pin=10
     press(pin)
-    time.sleep(0.1)
+    time.sleep(0.5)
+    #League=NHL
+    pin=10
+    press(pin)
+    time.sleep(0.5)
+    #team = blackhawks
+    pin=10
+    press(pin)
+    time.sleep(0.5)
+    #Scenario = rush
+    pin=10
+    press(pin)
+    time.sleep(0.5)
+    #offensive player = 2
+    pin=11
+    press(pin)
+    time.sleep(0.5)
+    pin=11
+    press(pin)
+    time.sleep(0.5)
+    pin=10
+    press(pin)
+    time.sleep(0.5)
+    #defensive player = 1
+    pin=11
+    press(pin)
+    time.sleep(0.5)
+    pin=11
+    press(pin)
+    time.sleep(0.5)
+    pin=10
+    press(pin)
+    time.sleep(0.5)
+    pin=2
+    press(pin)
+    time.sleep(1)
     
     
-GPIO.setwarnings(false)
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
 
@@ -80,10 +116,15 @@ buttons = {"Y": 17,
            "R": 11,
            "Start": 27}
 
-GPIO.setup(pin, GPIO.OUT, initial=GPIO.HIGH)
 
 def press (pin):
+    GPIO.setup(pin, GPIO.OUT, initial=GPIO.HIGH)
     GPIO.output(pin, GPIO.LOW)
     time.sleep(0.1)
     GPIO.output(pin, GPIO.HIGH)
+    
+#Final
+prac_mode()
+team_prac()
+two_on_one()
     
