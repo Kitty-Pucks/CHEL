@@ -48,13 +48,13 @@ def prac_mode():
 def team_prac():
     pin=11
     press(pin)
-    time.sleep (0.5)
+    time.sleep (1)
     pin=11
     press(pin)
-    time.sleep (0.5)
+    time.sleep (1)
     pin=11
     press(pin)
-    time.sleep (0.5)
+    time.sleep (1)
     pin=2
     press(pin)
     time.sleep (3)
@@ -62,9 +62,6 @@ def team_prac():
 #TODO3: Move to 2-on-1 setting
     
 def two_on_one():
-    pin=10
-    press(pin)
-    time.sleep(0.5)
     #League=NHL
     pin=10
     press(pin)
