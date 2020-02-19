@@ -107,7 +107,7 @@ def start():
     time.sleep(3)
     pin=2
     press(pin)
-    time.sleep(10)
+    time.sleep(20)
     
 #TODO5: Change sides to no side and set ten minute timer
 def side():
@@ -147,7 +147,7 @@ def side():
     time.sleep(1)
     pin=2
     press(pin)
-    time.sleep(600)
+    time.sleep(600) #set this to how long you want each scnario to last for
     
 #TODO6: End scenario
 def end():
