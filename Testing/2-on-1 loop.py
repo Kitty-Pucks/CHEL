@@ -30,7 +30,6 @@ import sys
 import RPi.GPIO as GPIO
 import time
 import random
-import cv2
 
 #TODO1: Navigate to Practice Mode game mode
     #Press "A" once to get off loading screen
@@ -68,9 +67,12 @@ def two_on_one():
     x = random.randint(0,30)    
     print ("team moved left", x, "times")
     for i in range(x):
-        pin=10
+        pin=9
         press(pin)
         time.sleep(0.5)
+    pin=10
+    press(pin)
+    time.sleep(0.5)
     #Scenario = rush
     pin=10
     press(pin)
@@ -102,7 +104,7 @@ def start():
     time.sleep(0.5)
     pin=2
     press(pin)
-    time.sleep(1.5)
+    time.sleep(3)
     pin=2
     press(pin)
     time.sleep(10)
@@ -111,21 +113,26 @@ def start():
 def side():
     pin=27
     press(pin)
-    time.sleep(1)
+    time.sleep(2)
     for i in range (4):
         pin=10
         press(pin)
-        time.sleep(0.5)
+        time.sleep(1)
     pin=2
     press(pin)
     time.sleep(1)
     pin=10
     press(pin)
     time.sleep(0.5)
-    for i in range (2):
-        pin=11
-        press(pin)
-        time.sleep(1)
+    pin=11
+    press(pin)
+    time.sleep(1)
+    pin=2
+    press(pin)
+    time.sleep(1)
+    pin=11
+    press(pin)
+    time.sleep(1)
     pin=3
     press(pin)
     time.sleep(1)
@@ -134,10 +141,10 @@ def side():
     time.sleep(0.5)
     pin=2
     press(pin)
-    time.sleep(1)
+    time.sleep(2)
     pin=3
     press(pin)
-    time.sleep(0.5)
+    time.sleep(1)
     pin=2
     press(pin)
     time.sleep(600)
@@ -185,11 +192,9 @@ def press (pin):
 #Final
 prac_mode()
 while True:
-    k=cv2.waitKey(1) & 0xFF
     team_prac()
     two_on_one()
     start() 
     side()
     end()
-    if k == ord('q'): # press q to end loop
-        break
+   
